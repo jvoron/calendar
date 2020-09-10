@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WeeklySelectionComponent } from './weekly-selection.component';
+import { DayViewComponent } from './day-view.component';
 import {FormsModule} from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [WeeklySelectionComponent],
+  declarations: [DayViewComponent],
   imports: [
     CommonModule,
     FormsModule
   ],
-  exports: [WeeklySelectionComponent]
+  exports: [DayViewComponent]
 })
-export class WeeklySelectionModule { }
+export class DayViewModule { }

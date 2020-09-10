@@ -9,18 +9,18 @@ export interface CalendarDate {
 }
 
 @Component({
-  selector: 'app-weekly-selection',
-  templateUrl: './weekly-selection.component.html',
-  styleUrls: ['./weekly-selection.component.scss']
+  selector: 'app-day-view',
+  templateUrl: './day-view.component.html',
+  styleUrls: ['./day-view.component.scss']
 })
-export class WeeklySelectionComponent implements OnInit {
+export class DayViewComponent implements OnInit {
   public currentDate: moment.Moment;
   public namesOfDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+   
+
   public weeks: Array<CalendarDate[]> = [];
 
   public selectedDate;
-  public selectedStartWeek;
-  public selectedEndWeek;
   public show: boolean;
 
   @ViewChild('calendar', {static: true}) calendar;
@@ -37,9 +37,7 @@ export class WeeklySelectionComponent implements OnInit {
 
   ngOnInit() {
     this.currentDate = moment();
-    this.selectedStartWeek = moment().weekday(-7);
-    this.selectedEndWeek = moment().weekday(-1);
-    this.selectedDate = `${this.selectedStartWeek.format('DD/MM/YYYY')} - ${this.selectedEndWeek.format('DD/MM/YYYY')}`;
+    this.selectedDate = moment(this.currentDate).format('DD/MM/YYYY');
     this.generateCalendar();
   }
 
@@ -50,28 +48,34 @@ export class WeeklySelectionComponent implements OnInit {
       weeks.push(dates.splice(0, 7));
     }
     this.weeks = weeks;
+
   }
 
-  private fillDates(currentMoment: moment.Moment) {
-    // index first day of month in week
-    const firstOfMonth = moment(currentMoment).startOf('month').day();
-    // index last day of month  in week
-    const lastOfMonth = moment(currentMoment).endOf('month').day();
 
-    const firstDayOfGrid = moment(currentMoment).startOf('month').subtract(firstOfMonth, 'days');
-    // get last start of week + week
-    const lastDayOfGrid = moment(currentMoment).endOf('month').subtract(lastOfMonth, 'days').add(7, 'days');
+
+
+
+  private fillDates(currentMoment: moment.Moment) {
+    const firstOfMonth = moment(currentMoment).subtract(6, 'days');
+    const lastOfMonth = moment(currentMoment).subtract(-1, 'days');
+
+    const firstDayOfGrid = moment(currentMoment).subtract(6, 'days');
+    const lastDayOfGrid = moment(currentMoment).subtract(-1, 'days');
+
+  
+
 
     const startCalendar = firstDayOfGrid.date();
-
 
     return range(startCalendar, startCalendar + lastDayOfGrid.diff(firstDayOfGrid, 'days')).map((date) => {
       const newDate = moment(firstDayOfGrid).date(date);
       return {
         today: this.isToday(newDate),
         selected: this.isSelected(newDate),
+        dayNameUsed: this.namesOfDays[newDate.weekday()],
         mDate: newDate,
-      };
+
+      }
     });
   }
 
@@ -85,34 +89,28 @@ export class WeeklySelectionComponent implements OnInit {
     this.generateCalendar();
   }
 
+   
+
   public isDisabledMonth(currentDate): boolean {
     const today = moment();
     return moment(currentDate).isBefore(today, 'months');
   }
 
   private isToday(date: moment.Moment): boolean {
-    return moment().format('YYYY-MM-DD') === moment(date).format('YYYY-MM-DD');
+    return moment().isSame(moment(date), 'day');
   }
 
   private isSelected(date: moment.Moment): boolean {
-    return moment(date).isBefore(this.selectedEndWeek) && moment(date).isAfter(this.selectedStartWeek)
-      || moment(date.format('YYYY-MM-DD')).isSame(this.selectedStartWeek.format('YYYY-MM-DD'))
-      || moment(date.format('YYYY-MM-DD')).isSame(this.selectedEndWeek.format('YYYY-MM-DD'));
-  }
-
-  public isDayBeforeLastSat(date: moment.Moment): boolean {
-    const lastSat = moment().weekday(-1);
-    return moment(date).isSameOrBefore(lastSat);
+    return this.selectedDate === moment(date).format('DD/MM/YYYY');
   }
 
   public isSelectedMonth(date: moment.Moment): boolean {
-    return moment(date).isSame(this.currentDate, 'month');
+    const today = moment();
+    return moment(date).isSame(this.currentDate, 'month') && moment(date).isSameOrBefore(today);
   }
 
-  public selectDate(date: CalendarDate[]) {
-    this.selectedStartWeek = moment(date[0].mDate);
-    this.selectedEndWeek = moment(date[6].mDate);
-    this.selectedDate = `${ this.selectedStartWeek.format('DD/MM/YYYY')} - ${this.selectedEndWeek.format('DD/MM/YYYY')}`;
+  public selectDate(date: CalendarDate) {
+    this.selectedDate = moment(date.mDate).format('DD/MM/YYYY');
 
     this.generateCalendar();
     this.show = !this.show;

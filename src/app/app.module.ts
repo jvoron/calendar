@@ -2,17 +2,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {DayViewModule} from './day-view/day-view.module';
 import {DailySelectionModule} from './daily-selection/daily-selection.module';
-import {WeeklySelectionModule} from './weekly-selection/weekly-selection.module';
+import { DayViewComponent } from './day-view/day-view.component';
+import { TaskButtonComponent } from './task-button/task-button.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DayViewComponent,
+    TaskButtonComponent
   ],
   imports: [
     BrowserModule,
     DailySelectionModule,
-    WeeklySelectionModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
