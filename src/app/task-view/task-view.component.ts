@@ -4,14 +4,14 @@ import { DecimalPipe } from '@angular/common';
 import {Task} from '../model/task';
 
 @Component({
-  selector: 'app-task-view',
+  selector: 'task-view',
   templateUrl: './task-view.component.html',
   styleUrls: ['./task-view.component.scss']
 })
 export class TaskViewComponent implements OnInit {
 
   @Input()
- task:Task;
+ task: Task;
 
   constructor() { }
 

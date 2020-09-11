@@ -10,20 +10,23 @@
  <ul>
     <h1> {{DayONE.eventTypeName}}</h1>
     </ul>
+  <div class ="tasks" >
+   <task-view [task]="DayONE" ></task-view>
+   <task-view [task]="DayTWO" ></task-view>
+  
+   
+  </div>
+
+
   <div>
-     <app-task-view></app-task-view>
+     <task-view></task-view>
   </div> 
   
   <div>
      <app-task-button></app-task-button>
      
   </div> 
-  <div class ="tasks" >
-   <task-view [eventTypeName]="DayONE.eventTypeName" ></task-view>
-   <task-view [eventTypeName]="DayTWO.eventTypeName" ></task-view>
-   <task-view  ></task-view>
-   
-  </div> 
+ 
 
 
   
