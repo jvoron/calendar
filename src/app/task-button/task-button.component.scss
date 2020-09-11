@@ -1,58 +1,21 @@
-section {
-    display: table;
-  }
-  
-  .example-label {
-    display: table-cell;
-    font-size: 14px;
-    margin-left: 8px;
-    min-width: 120px;
-  }
-  
-  .example-button-row {
-    display: table-cell;
-    width: 490px;
-  }
-  
-  .example-button-row .mat-button-base {
-    margin: 8px 8px 8px 0;
-  }
-  
-  .example-flex-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  
-  .example-button-container {
-    display: flex;
-    justify-content: center;
-    width: 120px;
-  }
-  
-  .example-button-row button,
-.example-button-row a {
-  margin-right: 8px;
-}
-
 .pure-material-button-contained {
-    position: relative;
+    position: fixed;
     display: inline-block;
     box-sizing: border-box;
     border: none;
     border-radius: 4px;
     padding: 0 16px;
-    min-width: 64px;
-    height: 36px;
+    min-width: 500px;
+    height: 40px;
     vertical-align: middle;
     text-align: center;
     text-overflow: ellipsis;
     text-transform: uppercase;
     color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
-    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--pure-material-primary-rgb, 255, 137, 0));
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 36px;
     overflow: hidden;
