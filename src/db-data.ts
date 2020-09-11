@@ -1,4 +1,4 @@
-export const TASKS: any ={
+export const TASKS: any =[
   
     {
      id: 1,
@@ -34,5 +34,5 @@ export const TASKS: any ={
     }
    
   
-  }
+]
   

@@ -7,4 +7,7 @@ import {TASKS} from '../db-data';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+DayONE = TASKS [0];
+
 }
