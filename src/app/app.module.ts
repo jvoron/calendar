@@ -6,14 +6,14 @@ import {DayViewModule} from './day-view/day-view.module';
 import {DailySelectionModule} from './daily-selection/daily-selection.module';
 import { DayViewComponent } from './day-view/day-view.component';
 import { TaskButtonComponent } from './task-button/task-button.component';
-import { TaskViewComponent } from './task-view/task-view.component';
+import { TaskCardComponent } from './tasks/task-card/task-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DayViewComponent,
     TaskButtonComponent,
-    TaskViewComponent
+    TaskCardComponent
   ],
   imports: [
     BrowserModule,

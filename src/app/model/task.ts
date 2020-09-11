@@ -1,5 +1,4 @@
 export interface Task{
-
     id: number;
     date: Date;
     quantity: number;
@@ -14,4 +13,10 @@ export interface Task{
     tasksCount: number;
     firstTaskStart: Date;
     lastTaskEnd: Date;
+    description:string;
+    iconUrl: string;
+    longDescription: string;
+    category:string;
+    lessonsCount:number;
+
 }

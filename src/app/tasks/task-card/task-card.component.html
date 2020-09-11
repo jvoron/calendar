@@ -1,0 +1,38 @@
+<div class="task-card" *ngIf="task" #container>
+
+  <div class="task-title">
+
+      {{ cardIndex || '' + ' ' + task.description }}
+
+  </div>
+
+  <ng-content select="task-image"
+              *ngIf="task.iconUrl"></ng-content>
+
+  <div class="task-description">
+
+    Edit Title: <input #taskTitle [value]="task.description"
+                       (keyup)="onTitleChanged(taskTitle.value)">
+
+  </div>
+
+  <div class="task-category">
+
+    <div class="category" i18n>
+
+        {
+            task.category,
+            select,
+            BEGINNER {Beginner}
+            INTERMEDIATE {Intermediate}
+            ADVANCED {Advanced}
+        }
+
+    </div>
+
+
+  </div>
+
+  <button (click)="onSaveClicked(taskTitle.value)">Save Task</button>
+
+</div>
