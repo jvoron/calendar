@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {TASKS} from '../../db-data';
 import { DecimalPipe } from '@angular/common';
+import {Task} from '../model/task';
 
 @Component({
   selector: 'app-task-view',
@@ -10,20 +11,7 @@ import { DecimalPipe } from '@angular/common';
 export class TaskViewComponent implements OnInit {
 
   @Input()
-  id: number;
-  date: Date;
-  quantity: number;
-  price: DecimalPipe;
-  eventTypeName: string;
-  isExpenseType: boolean;
-  isHoursEventType: boolean;
-  isAdditionalHoursEventType: boolean;
-  isWorkHour: boolean;
-  isApproved: boolean;
-  isRejected: boolean;
-  tasksCount: number;
-  firstTaskStart: Date;
-  lastTaskEnd: Date;
+ task:Task;
 
   constructor() { }
 
