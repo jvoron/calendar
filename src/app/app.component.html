@@ -1,23 +1,39 @@
 
 
 <div class="content">
-  <ul>
+  <ul> 
+    
   <div>
     <app-day-view></app-day-view>
   </div>
   </ul>
-    
+ <ul>
+    <h1> {{DayONE.eventTypeName}}</h1>
+    </ul>
   <div>
      <app-task-view></app-task-view>
   </div> 
   
   <div>
      <app-task-button></app-task-button>
+     
   </div> 
+  <div class ="tasks" >
+   <task-view [eventTypeName]="DayONE.eventTypeName" ></task-view>
+   <task-view [eventTypeName]="DayTWO.eventTypeName" ></task-view>
+   <task-view  ></task-view>
+   
+  </div> 
+
+
+  
+  
   
 <div>
 
-  <h1> {DayONE.eventTypeName}</h1>
+ 
+
+  
  
   
 

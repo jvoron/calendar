@@ -9,5 +9,7 @@ import {TASKS} from '../db-data';
 export class AppComponent {
 
 DayONE = TASKS [0];
+DayTWO = TASKS [1];
+
 
 }
