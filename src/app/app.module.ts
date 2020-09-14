@@ -7,13 +7,15 @@ import {DailySelectionModule} from './daily-selection/daily-selection.module';
 import { DayViewComponent } from './day-view/day-view.component';
 import { TaskButtonComponent } from './task-button/task-button.component';
 import { TaskCardComponent } from './tasks/task-card/task-card.component';
+import { TaskTitleComponent } from './task-title/task-title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DayViewComponent,
     TaskButtonComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    TaskTitleComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@ import {HighlightedDirective} from './directives/highlighted.directive';
 import {NgxUnlessDirective} from './directives/ngx-unless.directive';
 import {HttpClientModule} from '@angular/common/http';
 import {FilterByCategoryPipe} from './filter-by-category.pipe';
-import {TaskTitleComponent} from '../task-title/task-title.component';
+/* import {TaskTitleComponent} from '../task-title/task-title.component';*/
 
 @NgModule({
   imports: [
