@@ -10,7 +10,7 @@ import { TaskCardComponent } from './tasks/task-card/task-card.component';
 import { TaskTitleComponent } from './task-title/task-title.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import {TasksModule} from './tasks/tasks.module';
+import { TasksService } from './tasks/tasks.service';
 
 
 @NgModule({
@@ -25,11 +25,11 @@ import {TasksModule} from './tasks/tasks.module';
     BrowserModule,
     DailySelectionModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    TasksModule
+    HttpClientModule
+ 
     
   ],
-  providers: [],
+  providers: [TasksService],
   bootstrap: [AppComponent],
   entryComponents: [TaskTitleComponent]
 })

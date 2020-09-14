@@ -30,12 +30,12 @@ export class TasksService {
 
   }
 
-  saveTask(course:Task) {
+  saveTask(task:Task) {
       const headers = new HttpHeaders()
           .set("X-Auth", "userId");
 
       return this.http.put(`/api/tasks/${task.id}`,
-          course,{headers});
+          task,{headers});
 
   }
 
