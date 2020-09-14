@@ -16,11 +16,13 @@ export interface CalendarDate {
 export class DayViewComponent implements OnInit {
   public currentDate: moment.Moment;
   public namesOfDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  public namesOfDaysFull =['Sunday','Monday','Tuesday', 'Wednesday', 'Thursday','Friday', 'Saturday'];
    
 
   public weeks: Array<CalendarDate[]> = [];
 
   public selectedDate;
+  public selectedDateDay;
   public show: boolean;
 
   @ViewChild('calendar', {static: true}) calendar;
@@ -37,8 +39,10 @@ export class DayViewComponent implements OnInit {
 
   ngOnInit() {
     this.currentDate = moment();
-    this.selectedDate = moment(this.currentDate).format('DD/MM/YYYY');
+    this.selectedDate = moment(this.currentDate).format('DD.MM.YYYY');
+    this.selectedDateDay =  (this.selectedDate);
     this.generateCalendar();
+    
   }
 
   private generateCalendar(): void {
@@ -61,6 +65,7 @@ export class DayViewComponent implements OnInit {
 
     const firstDayOfGrid = moment(currentMoment).subtract(6, 'days');
     const lastDayOfGrid = moment(currentMoment).subtract(-1, 'days');
+    
 
   
 
@@ -73,6 +78,7 @@ export class DayViewComponent implements OnInit {
         today: this.isToday(newDate),
         selected: this.isSelected(newDate),
         dayNameUsed: this.namesOfDays[newDate.weekday()],
+        dayNameUsedFull: this.namesOfDaysFull[newDate.weekday()],
         mDate: newDate,
 
       }
@@ -101,7 +107,7 @@ export class DayViewComponent implements OnInit {
   }
 
   private isSelected(date: moment.Moment): boolean {
-    return this.selectedDate === moment(date).format('DD/MM/YYYY');
+    return this.selectedDate === moment(date).format('DD.MM.YYYY');
   }
 
   public isSelectedMonth(date: moment.Moment): boolean {
@@ -110,9 +116,16 @@ export class DayViewComponent implements OnInit {
   }
 
   public selectDate(date: CalendarDate) {
-    this.selectedDate = moment(date.mDate).format('DD/MM/YYYY');
+    this.selectedDate = moment(date.mDate).format('DD.MM.YYYY');
+    this.selectedDateDay=this.selectedDate;
 
     this.generateCalendar();
     this.show = !this.show;
   }
-}
+
+  public getTodayName (date: CalendarDate) {
+    return     this.namesOfDaysFull[this.currentDate.weekday()];
+      }
+
+  }
+

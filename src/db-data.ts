@@ -41,7 +41,28 @@ export const TASKS: any =[
      longDescription: "Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples",
      category: 'BEGINNER',
      lessonsCount: 10
-    }
+    },
+    {
+        id:3,
+        date: '2020-09-13',
+        quantity: 5,
+        price: 6,
+        eventTypeName: 'Lunch',
+        isExpenseType: false,
+        isHoursEventType: true,
+        isAdditionalHoursEventType: false,
+        isWorkHour: false,
+        isApproved: false,
+        isRejected: false,
+        tasksCount: 2,
+        firstTaskStart: '2020-09-13 08:00',
+        lastTaskEnd: '2020-09-13 17:00',
+        description: 'NgRx In Depth',
+        longDescription: "Learn the modern Ngrx Ecosystem, including Store, Effects, Router Store, Ngrx Entity, Dev Tools and Schematics.",
+        iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-ngrx-course.png',
+        category: 'ADVANCED'
+       }
+
    
   
 ]

@@ -1,32 +1,55 @@
-<div class="top-menu">
 
-  <img class="logo"
-       src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 
-</div>
+<div class="content">
+  <ul> 
+    
+  <div>
+    <app-day-view></app-day-view>
+  </div>
+  </ul>
+ <!--
+  <div>
+     <app-task-button></app-task-button>
+     
+  </div> 
 
-<div>
-
+  <br>
   <div class="demo">
 
 
-      <button (click)="onEditCourse()" i18n>Edit Course</button>
+    <button (click)="onEditTask()" i18n>Edit Task</button>
 
-  </div>
-
-  <div class="courses">
-
-    <course-card *ngFor="let course of  courses  "
-                 (courseChanged)="save($event)"
-                 type="beginner"
-                 [course]="course">
-
-      <course-image [src]="course.iconUrl"></course-image>
-
-    </course-card>
+</div></div>
+-->
 
 
-  </div>
+
+<BR>
+
+
+<div class="tasks">
+
+  <task-card *ngFor="let task of  tasks  "
+               (taskChanged)="save($event)"
+               type="beginner"
+               [task]="task">
+
+    
+
+  </task-card>
 
 
 </div>
+
+
+  
+  
+  
+
+
+ 
+
+  
+ 
+  
+

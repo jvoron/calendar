@@ -26,7 +26,7 @@ export class TasksService {
           .set("page", "1")
           .set("pageSize", "10");
 
-      return this.http.get<Task[]>('/api/courses', {params});
+      return this.http.get<Task[]>('/api/tasks', {params});
 
   }
 

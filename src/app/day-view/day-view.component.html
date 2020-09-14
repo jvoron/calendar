@@ -27,11 +27,22 @@
           <div class="calendar__date"
             [ngClass]="{'today': day.today, 'selected': day.selected, 'disabled': !isSelectedMonth(day.mDate)}"
             (click)="selectDate(day)">
-            <span class="calendar__number">{{day.mDate.date()}}</span>
+            <span class="calendar__number">{{day.mDate.date() }}</span>
+         
            </div>
-        </ng-container>
+          
+             
+        </ng-container>  
+         
+   
      </div>
+    
    </div>
+
+   <div class="day_selected">
+       
+    <span>{{ selectedDateDay | date: 'EEEE dd.MM.yyyy'}} </span>
+    <div> 
    </div>
 </div>
     

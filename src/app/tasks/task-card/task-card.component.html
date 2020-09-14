@@ -6,9 +6,7 @@
 
   </div>
 
-  <ng-content select="task-image"
-              *ngIf="task.iconUrl"></ng-content>
-
+ 
   <div class="task-description">
 
     Edit Title: <input #taskTitle [value]="task.description"
@@ -16,23 +14,22 @@
 
   </div>
 
-  <div class="task-category">
-
-    <div class="category" i18n>
-
-        {
-            task.category,
-            select,
-            BEGINNER {Beginner}
-            INTERMEDIATE {Intermediate}
-            ADVANCED {Advanced}
-        }
-
-    </div>
-
+  <div class="quantity">
+  Hours 
 
   </div>
+  <div class="quantity">
+ Expenses 
+ <br> quantity {{task.quantity}}
+    
+   </div>
+   <div class="quantity">
+   Additional Hours
+      
+     </div>
+  
 
-  <button (click)="onSaveClicked(taskTitle.value)">Save Task</button>
+
+
 
 </div>
