@@ -8,6 +8,10 @@ import { DayViewComponent } from './day-view/day-view.component';
 import { TaskButtonComponent } from './task-button/task-button.component';
 import { TaskCardComponent } from './tasks/task-card/task-card.component';
 import { TaskTitleComponent } from './task-title/task-title.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
+import {TasksModule} from './tasks/tasks.module';
+
 
 @NgModule({
   declarations: [
@@ -19,11 +23,14 @@ import { TaskTitleComponent } from './task-title/task-title.component';
   ],
   imports: [
     BrowserModule,
-    DailySelectionModule
-    
+    DailySelectionModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    TasksModule
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [TaskTitleComponent]
 })
 export class AppModule { }
