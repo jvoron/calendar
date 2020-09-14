@@ -10,17 +10,44 @@ import {TaskTitleComponent} from './task-title/task-title.component';
 
 
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-DayONE = TASKS [0];
-DayTWO = TASKS [1];
+  tasks: Task[] = TASKS;
+
+  tasksTotal = this.tasks.length;
+
+  constructor(
+      private tasksService: TasksService,
+      @Inject(CONFIG_TOKEN) private config: AppConfig,
+      private injector: Injector) {
+
+  }
+
+  ngOnInit() {
+
+      const htmlElement = createCustomElement(TaskTitleComponent, {injector:this.injector});
+
+      customElements.define('task-title', htmlElement);
+
+  }
+
+  onEditCourse() {
+
+          this.tasks[1].category = 'ADVANCED';
+
+  }
+
+  save(task: Task) {
+      this.tasksService.saveTask(task)
+          .subscribe(
+              () => console.log('Task Saved!')
+          );
+  }
 
 
 }
